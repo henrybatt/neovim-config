@@ -4,7 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		cmd = "Mason",
 		dependencies = {
-			{ "williamboman/mason.nvim", build = function() vim.cmd("MasonUpdate") end, },
+			{ "williamboman/mason.nvim" },
       		"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			{ "j-hui/fidget.nvim", opts = {}, },
