@@ -1,5 +1,5 @@
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Highlight search, but clear on <Esc> in normal mode
 vim.opt.hlsearch = true
