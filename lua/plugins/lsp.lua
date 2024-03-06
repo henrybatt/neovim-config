@@ -92,10 +92,7 @@ return {
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
-
 			})
-
-
 		end,
 	},
 }

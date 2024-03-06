@@ -10,11 +10,7 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/nvim-cmp",
 			"folke/neodev.nvim",
-			{ "williamboman/mason.nvim",
-				build = function()
-					vim.cmd("MasonUpdate")
-				end,
-			},
+			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{ "L3MON4D3/LuaSnip",
 				dependencies = {
