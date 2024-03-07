@@ -4,7 +4,7 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
-			require("catppuccin").setup({})
+			vim.cmd.colorscheme "catppuccin"
 		end,
 	},
 	{
@@ -27,7 +27,6 @@ return {
 
 
         local dashboard = require('alpha.themes.dashboard')
-
 
         dashboard.section.buttons.val = {
             dashboard.button('f', '  Find file', ':Telescope find_files <CR>'),
@@ -71,6 +70,4 @@ return {
 
 	end
 	}
-
-
 }

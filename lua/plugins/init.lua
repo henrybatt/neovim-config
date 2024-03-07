@@ -1,7 +1,4 @@
 return {
-	{"folke/which-key.nvim"},
-	{
-		"folke/neoconf.nvim",
-		cmd = "Neoconf",
-	},
+	"folke/which-key.nvim",
+	--"tpope/vim-sleuth",
 }

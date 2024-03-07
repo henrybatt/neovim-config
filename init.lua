@@ -4,4 +4,7 @@ require("core.auto_cmds")
 require("core.lazy")
 
 require('catppuccin').setup({transparent_background = false})
-vim.cmd.colorscheme("catppuccin")
+
+-- Autoformatter
+-- conform
+-- neoformat??
