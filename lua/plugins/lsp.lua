@@ -36,22 +36,32 @@ return {
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
-				lua_ls = {},
-				--pylsp = {
-				--	settings = {
-				--		pylsp = {
-				--			plugins = {
-				--				pycodestyle = {
-				--					ignore = { "W191" },
-				--					maxLineLength = 100
-				--				}
-				--			}
-				--		}
-				--	}
-				--},
+				lua_ls = {
+					settings = {
+						Lua = {
+      						workspace = { checkThirdParty = false },
+     						telemetry = { enable = false },
+    					},
+  					},
+				},
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pycodestyle = {
+									ignore = { "W191", "W291", "E261", "W293", "W504", "W503", "E501", "W501"},
+								}
+							}
+						}
+					}
+				},
+				clangd = {},
+				rust_analyzer = {},
+				neocmake = {},
+				glsl_analyzer = {},
 			}
 
-			require("mason").setup()
+			require("mason").setup({})
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 				vim.list_extend(ensure_installed, {

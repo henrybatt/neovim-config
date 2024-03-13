@@ -15,7 +15,9 @@ return {
 
 			configs.setup({
 				ensure_installed = {
-					"c", "cpp", "python", "lua", "vim",
+					"c", "cpp", "lua", "python", "rust", "vimdoc", "vim", "markdown", "markdown_inline",
+					"jsonc", "cmake", "bibtex", "fish", "make", "javascript", "php", "verilog", "yaml", "toml", "html",
+					"javascript", "java", "kotlin", "dockerfile", "cuda", "query", "css", "ini", "rust", "glsl"
 				},
 				ignore_install = {},
 				sync_install = false,
