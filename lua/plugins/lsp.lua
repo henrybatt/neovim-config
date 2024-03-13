@@ -37,18 +37,18 @@ return {
 
 			local servers = {
 				lua_ls = {},
-				pylsp = {
-					settings = {
-						pylsp = {
-							plugins = {
-								pycodestyle = {
-									ignore = { "W191" },
-									maxLineLength = 100
-								}
-							}
-						}
-					}
-				},
+				--pylsp = {
+				--	settings = {
+				--		pylsp = {
+				--			plugins = {
+				--				pycodestyle = {
+				--					ignore = { "W191" },
+				--					maxLineLength = 100
+				--				}
+				--			}
+				--		}
+				--	}
+				--},
 			}
 
 			require("mason").setup()
