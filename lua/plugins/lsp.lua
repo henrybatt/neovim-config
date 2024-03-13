@@ -136,6 +136,7 @@ return {
 					map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 					map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 					map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  					map('<leader>fmt', vim.lsp.buf.format, 'LSP [F]or[m]a[t]')
 
 					map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
