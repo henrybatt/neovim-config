@@ -24,11 +24,47 @@ return {
 			telescope.load_extension("frecency")
 			telescope.load_extension("ui-select")
 			telescope.load_extension("undo")
-
 		end,
 
         opts = function()
             return {
+                pickers = {
+                    buffers = {
+                        prompt_prefix = "󰸩 ",
+                    },
+                    commands = {
+                        prompt_prefix = " ",
+                        layout_config = {
+                            height = 0.99,
+                            width = 0.99,
+                        },
+                    },
+                    command_history = {
+                        prompt_prefix = " ",
+                        layout_config = {
+                            height = 0.99,
+                            width = 0.99,
+                        },
+                    },
+                    git_files = {
+                        prompt_prefix = "󰊢 ",
+                        show_untracked = true,
+                    },
+                    find_files = {
+                        prompt_prefix = " ",
+                        find_command = { "fd", "-H" },
+                        layout_config = {
+                            height = 0.999,
+                            width = 0.999,
+                        },
+                    },
+                    live_grep = {
+                        prompt_prefix = "󰱽 ",
+                    },
+                    grep_string = {
+                        prompt_prefix = "󰱽 ",
+                    },
+                },
 		        extensions = {
 		            ["ui-select"] = {
 		                require("telescope.themes").get_dropdown(),
