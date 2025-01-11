@@ -14,6 +14,11 @@ return {
 			"debugloop/telescope-undo.nvim",
 			"BurntSushi/ripgrep",
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+            { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua", module = "sqlite"},
+                config = function()
+                    require("neoclip").setup({ enable_persistent_history = true, })
+                end,
+            }
 		},
 
 		config = function(_, opts)
@@ -24,10 +29,34 @@ return {
 			telescope.load_extension("frecency")
 			telescope.load_extension("ui-select")
 			telescope.load_extension("undo")
+            telescope.load_extension("neoclip")
 		end,
 
         opts = function()
             return {
+                defaults = {
+                    border = true,
+                    file_ignore_patterns = { ".git/", "node_modules" },
+                    layout_config = {
+                        horizontal = { height = 0.85, width = 0.90, preview_cuttof = 0, preview_width = 0.78 },
+                        prompt_position = "top",
+                    },
+                    path_display = { "smart" },
+                    prompt_prefix = " ",
+                    selection_caret = "❯ ",
+                    sorting_strategy = "ascending",
+                    vimgrep_arguments = {
+                        "rg",
+                        "--color=never",
+                        "--no-heading",
+                        "--with-filename",
+                        "--line-number",
+                        "--column",
+                        "--smart-case",
+                        "--hidden",
+                        "--trim",
+                    },
+                },
                 pickers = {
                     buffers = {
                         prompt_prefix = "󰸩 ",
@@ -80,7 +109,7 @@ return {
                 { "<leader><space>", builtin.buffers,   { desc = "[ ] Find existing buffers" } },
                 { "<leader>/",  builtin.current_buffer_fuzzy_find,  { desc = "[/] Fuzzily search in current buffer" } },
                 { "<leader>?",  builtin.oldfiles,       { desc = "[?] Find recently opened files" } },
-                { "<leader>.",  builtin.resume,         { desc = "[.] Resume previous Telescope" } },
+                { "<leader>.",  builtin.resume,         { desc = "[.] Resume Previous Telescope" } },
 
                 { "<leader>sf", builtin.find_files,     { desc = "[S]earch [F]iles" } },
 
@@ -92,8 +121,9 @@ return {
 			    { "<leader>sh", builtin.help_tags,      { desc = "[S]earch [H]elp" } },
                 { "<leader>sk", builtin.keymaps,        { desc = "[S]earch [K]eymaps" } },
 
-                { "<leader>sn", function() builtin.find_files { cwd = vim.fn.stdpath "config" } end, { desc = "[S]earch [N]eovim files" } },
+                { "<leader>sn", function() builtin.find_files { cwd = vim.fn.stdpath "config" } end, { desc = "[S]earch [N]eovim Files" } },
 
+                { "<leader>sy", "<cmd>Telescope neoclip<CR>", { desc = "[Search] Previous [Y]anked Content " } },
                 { "<leader>su", "<cmd>Telescope undo<CR>",      { desc = "[S]earch [U]ndo Tree" } },
                 { "<leader>sr", "<Cmd>Telescope frecency<CR>",  { desc = "[S]earch F[R]ecency" } },
             }
