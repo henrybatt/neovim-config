@@ -55,6 +55,12 @@ vim.opt.termguicolors = true
 -- Indent on appropriate indent triggers (eg {)
 vim.opt.smartindent = true
 
--- Set tabs options
+-- Spaces not tabs. 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.opt.expandtab = true
+vim.o.expandtab = true
