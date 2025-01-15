@@ -1,6 +1,5 @@
 local function map(mode, keys, command, opts)
     local options = { noremap = true, silent = true }
-
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end

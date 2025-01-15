@@ -1,4 +1,4 @@
 return {
-	"folke/which-key.nvim",
-	--"tpope/vim-sleuth",
+    "folke/which-key.nvim",
+    --"tpope/vim-sleuth",
 }

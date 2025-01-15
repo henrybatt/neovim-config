@@ -1,18 +1,17 @@
 return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme "catppuccin"
-		end,
-	},
-	{
-		"xiyaowong/transparent.nvim",
-		lazy = false,
-	},
-
-	{
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme "catppuccin"
+        end,
+    },
+    {
+        "xiyaowong/transparent.nvim",
+        lazy = false,
+    },
+    {
     'goolord/alpha-nvim',
     event = 'VimEnter',
     config = function()
@@ -25,9 +24,7 @@ return {
             return
         end
 
-
         local dashboard = require('alpha.themes.dashboard')
-
         dashboard.section.buttons.val = {
             dashboard.button('f', '  Find file', ':Telescope find_files <CR>'),
             dashboard.button('e', '  New file', ':ene <CR>'),
@@ -68,6 +65,6 @@ return {
         dashboard.opts.opts.noautocmd = true
         alpha.setup(dashboard.opts)
 
-	end
-	}
+    end
+    }
 }

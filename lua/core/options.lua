@@ -5,7 +5,7 @@ vim.opt.relativenumber = true
 -- Enable mouse support
 vim.opt.mouse = "a"
 
--- Disable showing mode (it's already in status line")
+-- Disable showing mode (it's already in status line)
 vim.opt.showmode = false
 
 -- Sync with OS clipboard
@@ -31,7 +31,7 @@ vim.opt.updatetime = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Preview substitutions live, as you type!
+-- Preview substitutions live
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
@@ -57,10 +57,10 @@ vim.opt.smartindent = true
 
 -- Spaces not tabs. 
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
 vim.o.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.o.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.o.softtabstop = 4
 vim.opt.expandtab = true
 vim.o.expandtab = true
