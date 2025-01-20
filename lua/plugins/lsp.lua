@@ -75,6 +75,8 @@ return {
             require("mason-tool-installer").setup({ ensure_installed = servers.ensure_installed or {} })
 
             require("mason-lspconfig").setup({
+                ensure_installed = servers.ensure_installed or {},
+                automatic_installation = true,
                 handlers = {
                     function(server_name)
                         local server = servers.configs[server_name] or {}
