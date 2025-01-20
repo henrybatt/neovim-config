@@ -1,7 +1,13 @@
 return {
     "rcarriga/nvim-notify",
+    version = "3.14.1",
+
+    config = function(_, opts)
+        require("notify").setup(opts)
+        vim.notify = require("notify")
+    end,
+
     opts = {
-        background_colour = "#2E3440",
         stages = "static",
         timeout = 1500,
     },
