@@ -28,6 +28,7 @@ return {
     {
         "xiyaowong/transparent.nvim",
         lazy = false,
+        opts = {},
     },
     {
     "goolord/alpha-nvim",
