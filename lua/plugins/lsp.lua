@@ -24,14 +24,19 @@ servers.configs = {
     rust_analyzer = {},
     neocmake = {},
     glsl_analyzer = {},
+    tinymist = {
+        settings = {
+            systemFonts = false,
+            formatterMode = "typstyle",
+            previewFeature = "disable"
+        }
+    },
 }
-
 
 servers.ensure_installed = {
     "lua_ls",
     "pylsp"
 }
-
 
 return {
     {
