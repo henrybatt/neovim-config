@@ -1,66 +1,68 @@
+local opt = vim.opt
+
 -- Enable relative line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
+opt.number = true
+opt.relativenumber = true
 
 -- Enable mouse support
-vim.opt.mouse = "a"
+opt.mouse = "a"
 
 -- Disable showing mode (it's already in status line)
-vim.opt.showmode = false
+opt.showmode = false
 
 -- Sync with OS clipboard
-vim.opt.clipboard = "unnamedplus"
+opt.clipboard = "unnamedplus"
 
 -- Enable break indent
-vim.opt.breakindent = true
+opt.breakindent = true
 
 -- Enable undo history
-vim.opt.undofile = true
+opt.undofile = true
 
 -- Smart searching (case insensitive)
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.ignorecase = true
+opt.smartcase = true
 
 -- Enable signcolumn by default
-vim.opt.signcolumn = "yes"
+opt.signcolumn = "yes"
 
 -- Decrease update time
-vim.opt.updatetime = 250
+opt.updatetime = 250
 
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
 
 -- Preview substitutions live
-vim.opt.inccommand = 'split'
+opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+opt.scrolloff = 10
 
 -- Write file contents
-vim.opt.autowrite = true
+opt.autowrite = true
 
 -- Reload file if changed externally
-vim.opt.autoread = true
+opt.autoread = true
 
 -- Enable text wrapping mode
-vim.opt.wrap = true
+opt.wrap = true
 
 -- Enable term full colours
-vim.opt.termguicolors = true
+opt.termguicolors = true
 
 -- Indent on appropriate indent triggers (eg {)
-vim.opt.smartindent = true
+opt.smartindent = true
 
 -- Spaces not tabs. 
-vim.opt.tabstop = 4
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
 vim.o.tabstop = 4
-vim.opt.shiftwidth = 4
 vim.o.shiftwidth = 4
-vim.opt.softtabstop = 4
 vim.o.softtabstop = 4
-vim.opt.expandtab = true
 vim.o.expandtab = true
