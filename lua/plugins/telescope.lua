@@ -9,15 +9,13 @@ return {
                 build = "make",
                 cond = function() return vim.fn.executable("make") == 1 end
             },
-            { "nvim-telescope/telescope-frecency.nvim" , version = "^0.9.0", }, -- Pin version for neovim 0.9.x support
+            { "nvim-telescope/telescope-frecency.nvim" },
             "nvim-telescope/telescope-ui-select.nvim",
             "debugloop/telescope-undo.nvim",
             "BurntSushi/ripgrep",
             { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
             { "AckslD/nvim-neoclip.lua", dependencies = { "kkharji/sqlite.lua", module = "sqlite"},
-                config = function()
-                    require("neoclip").setup({ enable_persistent_history = true, })
-                end,
+                opts = { enable_persistent_history = true, },
             }
         },
 
@@ -30,7 +28,6 @@ return {
             telescope.load_extension("ui-select")
             telescope.load_extension("undo")
             telescope.load_extension("neoclip")
-            telescope.load_extension("notify")
         end,
 
         opts = function()
@@ -122,7 +119,7 @@ return {
 			    { "<leader>sh", builtin.help_tags,      desc = "[S]earch [H]elp" },
                 { "<leader>sk", builtin.keymaps,        desc = "[S]earch [K]eymaps" },
 
-                { "<leader>sn", function() builtin.find_files { cwd = vim.fn.stdpath "config" } end,    desc = "[S]earch [N]eovim Files" },
+                { "<leader>sn", function() builtin.find_files { cwd = vim.fn.stdpath "config" } end, desc = "[S]earch [N]eovim Files" },
 
                 { "<leader>sy", "<cmd>Telescope neoclip<CR>",   desc = "[Search] Previous [Y]anked Content " },
                 { "<leader>su", "<cmd>Telescope undo<CR>",      desc = "[S]earch [U]ndo Tree" },
