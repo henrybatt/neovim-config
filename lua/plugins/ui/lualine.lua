@@ -9,8 +9,15 @@ addTypes({ "md", "txt", "markdown", "tex", "latex", "typst", "typ" })
 return {
     {
         "nvim-lualine/lualine.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = { "VeryLazy" },
+
+        init = function()
+            vim.g.lualine_laststatus = vim.o.laststatus
+            if vim.fn.argc(-1) > 0 then
+                vim.o.statusline = " "
+            end
+        end,
+
         opts = {
            sections = {
                lualine_x = {
