@@ -1,13 +1,10 @@
 return {
     "stevearc/oil.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 
-    ---@module "oil"
-    ---@type oil.SetupOpts
     opts = {
         delete_to_trash = false,
         float = {
-            padding = 4,
+            padding = 8,
         },
         keymaps = {
             ["gd"] = {
@@ -21,7 +18,8 @@ return {
                     end
                 end,
             },
-            ["q"] = { "actions.close", mode = "n", desc = "Close OIL" }
+            ["q"] = { "actions.close", mode = "n", desc = "Close OIL" },
+            ["<Esc>"] = { "actions.close", mode = "n", desc = "Close OIL" },
         },
         view_options = {
             show_hidden = true,
@@ -33,7 +31,7 @@ return {
 
     keys = function()
         return {
-            { "-", require("oil").open_float, desc = { "Open parent directory - OIL" } },
+            { "-", require("oil").open_float, desc = "Open parent directory - OIL" },
         }
     end,
 }
