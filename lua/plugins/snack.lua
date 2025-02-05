@@ -10,6 +10,9 @@ end
 
 return {
     "snacks.nvim",
+    priority = 1000,
+    lazy = false,
+
     opts = {
         bigfile = { enabled = true },
         quickfile = { enabled = true },
@@ -26,31 +29,13 @@ return {
 
         styles = {
             terminal = {
-                bo = {
-                    filetype = "snacks_terminal",
-                },
-                wo = {},
                 keys = {
-                    q = "hide",
-                    gf = function(self)
-                        local f = vim.fn.findfile(vim.fn.expand("<cfile>"), "**")
-                        if f == "" then
-                            Snacks.notify.warn("No file under cursor")
-                        else
-                            self:hide()
-                            vim.schedule(function()
-                                vim.cmd("e " .. f)
-                            end)
-                        end
-                    end,
-                    term_normal = {
-                        "<esc>",
-                        function()
-                            vim.cmd("stopinsert")
-                        end,
+                    quick_hide = {
+                        "<C-q>",
+                        "hide",
                         mode = "t",
                         expr = true,
-                        desc = "Double escape to normal mode",
+                        desc = "Hide the terminal directly from insertion",
                     },
                 },
             }
