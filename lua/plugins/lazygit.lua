@@ -1,15 +1,17 @@
 return {
-    "kdheepak/lazygit.nvim",
-    lazy = true,
-    cmd = {
-        "LazyGit",
-        "LazyGitConfig",
-        "LazyGitCurrentFile",
-        "LazyGitFilter",
-        "LazyGitFilterCurrentFile",
-    },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
 
-    keys = {
-        { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        opts = {
+            lazygit = { enabled = true, }
+        },
+
+        keys = {
+            { "<leader>lg", function() Snacks.lazygit() end }
+        }
     }
+
+
 }
