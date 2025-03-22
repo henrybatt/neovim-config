@@ -4,8 +4,8 @@ servers.configs = {
     lua_ls = {
         settings = {
             Lua = {
-                  workspace = { checkThirdParty = false },
-                 telemetry = { enable = false },
+                workspace = { checkThirdParty = false },
+                telemetry = { enable = false },
             },
         },
     },
@@ -14,7 +14,7 @@ servers.configs = {
             pylsp = {
                 plugins = {
                     pycodestyle = {
-                        ignore = { "W191", "W291", "E261", "E266", "W293", "W391", "W504", "W503", "E501", "W501"},
+                        ignore = { "W191", "W291", "E261", "E266", "W293", "W391", "W504", "W503", "E501", "W501" },
                     }
                 }
             }
@@ -29,6 +29,17 @@ servers.configs = {
             systemFonts = false,
             formatterMode = "typstyle",
             previewFeature = "disable"
+        }
+    },
+    marksman = {},
+    jdtls = {},
+    harper_ls = {
+        settings = {
+            ["harper-ls"] = {
+                linters = {
+                    SpellCheck = false,
+                },
+            },
         }
     },
 }
@@ -47,19 +58,20 @@ return {
             { "williamboman/mason.nvim" },
             "williamboman/mason-lspconfig.nvim",
             "WhoIsSethDaniel/mason-tool-installer.nvim",
-            { "j-hui/fidget.nvim", opts = {}, },
-            { "folke/neodev.nvim", opts = {}, },
-            { "hrsh7th/nvim-cmp",
+            { "folke/neodev.nvim",      opts = {}, },
+            {
+                "hrsh7th/nvim-cmp",
                 event = "InsertEnter",
                 dependencies = {
                     "hrsh7th/cmp-nvim-lsp",
                     "hrsh7th/cmp-path",
-                    { "L3MON4D3/LuaSnip",
+                    {
+                        "L3MON4D3/LuaSnip",
                         dependencies = {
                             "saadparwaiz1/cmp_luasnip",
                             "rafamadriz/friendly-snippets",
                         },
-                        build = function ()
+                        build = function()
                             if vim.fn.has "win32" == 1 or vim.fn.executable "make" == 0 then
                                 return
                             end
@@ -71,7 +83,7 @@ return {
         },
 
         config = function()
-            -- LSP + Mason Setup -- 
+            -- LSP + Mason Setup --
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -91,7 +103,7 @@ return {
                 }
             })
 
-            -- CMP Autocomplete -- 
+            -- CMP Autocomplete --
             local cmp = require("cmp")
             local luasnip = require("luasnip")
             luasnip.config.setup({})
@@ -101,15 +113,15 @@ return {
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     ["<C-l>"] = cmp.mapping(function()
-                            if luasnip.expand_or_locally_jumpable() then
-                                luasnip.expand_or_jump()
-                            end
-                        end, { "i", "s" }),
+                        if luasnip.expand_or_locally_jumpable() then
+                            luasnip.expand_or_jump()
+                        end
+                    end, { "i", "s" }),
                     ["<C-h>"] = cmp.mapping(function()
-                            if luasnip.locally_jumpable(-1) then
-                                luasnip.jump(-1)
-                            end
-                        end, { "i", "s" }),
+                        if luasnip.locally_jumpable(-1) then
+                            luasnip.jump(-1)
+                        end
+                    end, { "i", "s" }),
                 }),
 
                 window = {
@@ -136,7 +148,6 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
                 callback = function(event)
-
                     local map = function(keys, func, desc)
                         vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                     end
@@ -147,9 +158,12 @@ return {
 
                     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+                    map("<leader>gd", vim.diagnostic.open_float, "Open [D]iagnostic")
+
                     map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-                    map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-                    map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+                    map("<leader>lds", require("telescope.builtin").lsp_document_symbols, "[L]SP [D]ocument [S]ymbols")
+                    map("<leader>lws", require("telescope.builtin").lsp_dynamic_workspace_symbols,
+                        "[L]SP [W]orkspace [S]ymbols")
                     map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
                     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                     map("<leader>fmt", vim.lsp.buf.format, "LSP [F]or[m]a[t]")
