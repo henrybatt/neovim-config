@@ -9,13 +9,23 @@ local nvim_config_lua_path = vim.fn.stdpath("config") .. "/" .. "lua"
 function M.plugin_require(package)
     local plugins = {}
     for _, path in pairs(vim.split(vim.fn.glob(nvim_config_lua_path .. "/" .. package .. "/" .. "*.lua"), "\n")) do
-        relative_module_path = path:gsub(nvim_config_lua_path , ""):gsub("%.lua", "")
-        module_name = relative_module_path:gsub("(.*/)(.*)", "%2")
+        local relative_module_path = path:gsub(nvim_config_lua_path , ""):gsub("%.lua", "")
+        local module_name = relative_module_path:gsub("(.*/)(.*)", "%2")
         if (module_name ~= "init" and module_name:sub(1, 1) ~= "_" and module_name:sub(1, 1) ~= ".") then
             table.insert(plugins,require(relative_module_path))
         end
     end
     return plugins
+end
+
+function M.directory_require(directory)
+ for _, path in pairs(vim.split(vim.fn.glob(nvim_config_lua_path .. "/" .. directory .. "/" .. "*.lua"), "\n")) do
+        local relative_module_path = path:gsub(nvim_config_lua_path , ""):gsub("%.lua", "")
+        local module_name = relative_module_path:gsub("(.*/)(.*)", "%2")
+        if (module_name ~= "init" and module_name:sub(1, 1) ~= "_" and module_name:sub(1, 1) ~= ".") then
+            require(relative_module_path)
+        end
+    end
 end
 
 return M
