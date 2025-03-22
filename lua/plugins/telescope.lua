@@ -1,7 +1,9 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        event = "VimEnter",
+        -- event= "VimEnter",
+        lazy = true,
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             {
@@ -61,17 +63,9 @@ return {
                     },
                     commands = {
                         prompt_prefix = " ",
-                        layout_config = {
-                            height = 0.99,
-                            width = 0.99,
-                        },
                     },
                     command_history = {
                         prompt_prefix = " ",
-                        layout_config = {
-                            height = 0.99,
-                            width = 0.99,
-                        },
                     },
                     git_files = {
                         prompt_prefix = "󰊢 ",
@@ -80,10 +74,6 @@ return {
                     find_files = {
                         prompt_prefix = " ",
                         find_command = { "fd", "-H" },
-                        layout_config = {
-                            height = 0.999,
-                            width = 0.999,
-                        },
                     },
                     live_grep = {
                         prompt_prefix = "󰱽 ",
@@ -94,8 +84,8 @@ return {
                 },
                 extensions = {
                     ["ui-select"] = {
-                            require("telescope.themes").get_dropdown(),
-                        },
+                        require("telescope.themes").get_dropdown(),
+                    },
                 },
             }
         end,
