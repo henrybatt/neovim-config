@@ -20,5 +20,5 @@ map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rr
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Actual delete keymaps
-map({"n", "v"}, "<leader>d", '"_d', { desc = "Delete [count] characters before the cursor. [Not into register]" })
-map({"n", "v"}, "<leader>dd", '"_dd', { desc = "Delete [count] lines linewise. [Not into register]" })
+map({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete [count] characters before the cursor. [Not into register]" })
+map({ "n", "v" }, "<leader>dd", '"_dd', { desc = "Delete [count] lines linewise. [Not into register]" })

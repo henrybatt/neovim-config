@@ -66,3 +66,8 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = true
+
+-- Spelling
+opt.spell = true
+opt.spelllang = { "en_au", "en"}
+opt.spelloptions = "camel"
