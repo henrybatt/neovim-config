@@ -11,5 +11,8 @@ return {
         preview = {
             icon_provider = "mini",
         },
+        experimental = {
+            check_rtp_message = false,
+        },
     }
 }
