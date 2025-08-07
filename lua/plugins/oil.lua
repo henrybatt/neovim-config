@@ -1,3 +1,13 @@
+local save_and_close = {
+    callback = function()
+        local oil = require("oil")
+        oil.save(nil, function() oil.close() end)
+    end,
+    mode = "n",
+    desc = "Save and close OIL"
+}
+
+
 return {
     "stevearc/oil.nvim",
 
@@ -18,8 +28,8 @@ return {
                     end
                 end,
             },
-            ["q"] = { "actions.close", mode = "n", desc = "Close OIL" },
-            ["<Esc>"] = { "actions.close", mode = "n", desc = "Close OIL" },
+            ["q"] = save_and_close,
+            ["<Esc>"] = save_and_close,
         },
         view_options = {
             show_hidden = true,

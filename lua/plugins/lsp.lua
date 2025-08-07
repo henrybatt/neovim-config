@@ -87,13 +87,18 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-            require("mason").setup({})
+            require("mason").setup({
+                ui = {
+                    border = "rounded",
+                },
+            })
 
             require("mason-tool-installer").setup({ ensure_installed = servers.ensure_installed or {} })
 
             require("mason-lspconfig").setup({
                 ensure_installed = servers.ensure_installed or {},
                 automatic_installation = true,
+                automatic_enable = false,
                 handlers = {
                     function(server_name)
                         local server = servers.configs[server_name] or {}
