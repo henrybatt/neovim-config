@@ -77,7 +77,7 @@ return {
                 ensure_installed = ensure_installed
             },
         },
-        { "neovim/nvim-lspconfig", config = function(_, opts) end },
+        { "neovim/nvim-lspconfig", config = function() end },
         {
             "saghen/blink.cmp",
             version = "1.*",

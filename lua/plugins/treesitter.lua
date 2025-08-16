@@ -7,7 +7,7 @@ return {
     config = function(_, opts)
         require("config.options").treesitter_foldexpr()
 
-        require ("nvim-treesitter").install({ })
+        require("nvim-treesitter").install({})
 
         -- autocmd to automatically install and start treesitter parsers based on filetype
         -- from: https://www.reddit.com/r/neovim/comments/1kuj9xm/has_anyone_successfully_switched_to_the_new/
