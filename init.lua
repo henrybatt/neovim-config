@@ -1,2 +1,2 @@
-require("core.options")
+require("config.options")
 require("core.lazy")
