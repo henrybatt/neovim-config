@@ -5,6 +5,8 @@ return {
     build = ":TSUpdate",
 
     config = function(_, opts)
+        require("config.options").treesitter_foldexpr()
+
         require ("nvim-treesitter").install({ })
 
         -- autocmd to automatically install and start treesitter parsers based on filetype
