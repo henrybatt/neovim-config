@@ -12,7 +12,8 @@ return {
     config = function()
         require("config.options").treesitter_foldexpr()
 
-        require("nvim-treesitter").install({})
+        -- Install default parsers using nvim-treesitter
+        require("nvim-treesitter").install({ "bash", "c", "lua", "markdown", "markdown_inline", "query", "regex", "vimdoc" })
 
         -- autocmd to automatically install and start treesitter parsers based on filetype
         -- from: https://www.reddit.com/r/neovim/comments/1kuj9xm/has_anyone_successfully_switched_to_the_new/
