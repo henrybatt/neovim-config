@@ -1,4 +1,4 @@
-return {
+return require("core.utils").apply_ft("python", {
     {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         opts = {
@@ -23,4 +23,4 @@ return {
             })
         end,
     },
-}
+})
