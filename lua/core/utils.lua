@@ -16,4 +16,23 @@ function M.safe_require(module_name)
     return mod
 end
 
+function M.apply_ft(ft, plugins)
+    if type(plugins[1]) == "table" then
+        for k, v in pairs(plugins) do
+            M.apply_ft(ft, v)
+        end
+    else
+        if plugins.ft ~= nil then
+            if type(plugins.ft) == "string" then
+                plugins.ft = { plugins.ft, ft }
+            else
+                table.insert(plugins.ft, ft)
+            end
+        else
+            plugins.ft = { ft }
+        end
+    end
+    return plugins
+end
+
 return M
