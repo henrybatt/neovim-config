@@ -35,4 +35,12 @@ function M.apply_ft(ft, plugins)
     return plugins
 end
 
+function M.map(mode, keys, command, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.keymap.set(mode, keys, command, options)
+end
+
 return M
