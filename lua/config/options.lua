@@ -1,3 +1,5 @@
+local M = {}
+
 -- Add rounded borders to windows
 vim.o.winborder = "rounded"
 
@@ -58,7 +60,7 @@ vim.o.termguicolors = true
 -- Indent on appropriate indent triggers (eg {))
 vim.o.smartindent = true
 
--- Spaces not tabs. 
+-- Spaces not tabs.
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
@@ -72,3 +74,21 @@ vim.o.expandtab = true
 -- vim.o.spell = true
 -- vim.o.spelllang = { "en_au", "en"}
 -- vim.o.spelloptions = "camel"
+
+-- Folding
+function M.treesitter_foldexpr()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.foldtext = "v:lua.custom_foldtext()"
+end
+function M.lsp_foldexpr()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
+    vim.opt_local.foldtext = "v:lua.custom_foldtext()"
+end
+vim.o.foldcolumn = "0"
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+
+return M
