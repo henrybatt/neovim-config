@@ -4,7 +4,12 @@ return {
     branch = "main",
     build = ":TSUpdate",
 
-    config = function(_, opts)
+    dependencies = {
+        { "nvim-treesitter/nvim-treesitter-context" },
+        { "HiPhish/rainbow-delimiters.nvim" },
+    },
+
+    config = function()
         require("config.options").treesitter_foldexpr()
 
         require("nvim-treesitter").install({})
