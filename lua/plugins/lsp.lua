@@ -4,14 +4,18 @@ local ensure_installed = {
 
 -- Run on lsp buffer attach
 local function on_attach(client, buf)
-    local function map(keys, func, desc)
-        require("core.utils").map("n", keys, func, { buffer = buf, desc = "LSP: " .. desc })
+    local function map(keys, func, desc, opts)
+        local options = { buffer = buf, desc = "LSP: " .. desc }
+        if opts then
+            options = vim.tbl_extend("force", options, opts)
+        end
+        require("core.utils").map("n", keys, func, options)
     end
 
     -- Keymappings
     map("gd", function() Snacks.picker.lsp_definitions() end, "Goto [D]efinition")
     map("gD", function() Snacks.picker.lsp_declarations() end, "Goto [D]eclaration")
-    map("gr", function() Snacks.picker.lsp_references() end, "Goto [R]eferences")
+    map("gr", function() Snacks.picker.lsp_references() end, "Goto [R]eferences", { nowait = true })
     map("gI", function() Snacks.picker.lsp_implementations() end, "Goto [I]mplementation")
     map("gy", function() Snacks.picker.lsp_type_definitions() end, "Goto T[y]pe Definition")
     map("<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Document [S]ymbols")
