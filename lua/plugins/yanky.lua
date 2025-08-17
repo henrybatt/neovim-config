@@ -1,5 +1,26 @@
 return {
     "gbprod/yanky.nvim",
-    dependencies = { "folke/snacks.nvim" },
-    opts = {},
+    opts = {
+        highlight = { timer = 150 },
+    },
+    keys = {
+        { "<leader>sy", "<CMD>YankyRingHistory<CR>",                  desc = "Open Yank History",                    mode = { "n", "x" }, },
+        { "y",          "<Plug>(YankyYank)",                      desc = "Yank Text",                            mode = { "n", "x" } },
+        { "p",          "<Plug>(YankyPutAfter)",                  desc = "Put Text After Cursor",                mode = { "n", "x" } },
+        { "P",          "<Plug>(YankyPutBefore)",                 desc = "Put Text Before Cursor",               mode = { "n", "x" } },
+        { "gp",         "<Plug>(YankyGPutAfter)",                 desc = "Put Text After Selection",             mode = { "n", "x" } },
+        { "gP",         "<Plug>(YankyGPutBefore)",                desc = "Put Text Before Selection",            mode = { "n", "x" } },
+        { "[y",         "<Plug>(YankyCycleForward)",              desc = "Cycle Forward Through Yank History" },
+        { "]y",         "<Plug>(YankyCycleBackward)",             desc = "Cycle Backward Through Yank History" },
+        { "]p",         "<Plug>(YankyPutIndentAfterLinewise)",    desc = "Put Indented After Cursor (Linewise)" },
+        { "[p",         "<Plug>(YankyPutIndentBeforeLinewise)",   desc = "Put Indented Before Cursor (Linewise)" },
+        { "]P",         "<Plug>(YankyPutIndentAfterLinewise)",    desc = "Put Indented After Cursor (Linewise)" },
+        { "[P",         "<Plug>(YankyPutIndentBeforeLinewise)",   desc = "Put Indented Before Cursor (Linewise)" },
+        { ">p",         "<Plug>(YankyPutIndentAfterShiftRight)",  desc = "Put and Indent Right" },
+        { "<p",         "<Plug>(YankyPutIndentAfterShiftLeft)",   desc = "Put and Indent Left" },
+        { ">P",         "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put Before and Indent Right" },
+        { "<P",         "<Plug>(YankyPutIndentBeforeShiftLeft)",  desc = "Put Before and Indent Left" },
+        { "=p",         "<Plug>(YankyPutAfterFilter)",            desc = "Put After Applying a Filter" },
+        { "=P",         "<Plug>(YankyPutBeforeFilter)",           desc = "Put Before Applying a Filter" },
+    },
 }

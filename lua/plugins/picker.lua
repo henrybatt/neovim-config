@@ -114,7 +114,6 @@ return {
         { "<leader>sq", function() Snacks.picker.qflist() end,                desc = "Quickfix List" },
         { "<leader>sR", function() Snacks.picker.resume() end,                desc = "Resume" },
         { "<leader>su", function() Snacks.picker.undo() end,                  desc = "Undo History" },
-        { "<leader>sy", function() Snacks.picker.yanky() end,                 desc = "Open Yank History",     mode = { "n", "x" }, },
 
         -- -- LSP
         -- { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
