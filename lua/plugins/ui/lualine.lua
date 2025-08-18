@@ -8,7 +8,7 @@ addTypes({ "md", "txt", "markdown", "tex", "latex", "typst", "typ" })
 
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "echasnovski/mini.icons" },
 
     init = function()
         vim.g.lualine_laststatus = vim.o.laststatus
