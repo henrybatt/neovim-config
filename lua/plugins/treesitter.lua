@@ -9,7 +9,7 @@ return {
         { "HiPhish/rainbow-delimiters.nvim" },
     },
 
-    config = function()
+    opts = function()
         require("config.options").treesitter_foldexpr()
 
         -- Install default parsers using nvim-treesitter
