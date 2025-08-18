@@ -24,4 +24,12 @@ return require("core.utils").apply_ft("python", {
             })
         end,
     },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function()
+            require("nvim-treesitter").install({ "python" })
+        end,
+
+
+    },
 })
