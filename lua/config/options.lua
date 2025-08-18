@@ -71,9 +71,9 @@ vim.o.softtabstop = 4
 vim.o.expandtab = true
 
 -- Spelling
--- vim.o.spell = true
--- vim.o.spelllang = { "en_au", "en"}
--- vim.o.spelloptions = "camel"
+vim.o.spell = true
+vim.o.spelllang = "en_au"
+vim.o.spelloptions = "camel"
 
 -- Folding
 function M.treesitter_foldexpr()
