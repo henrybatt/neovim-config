@@ -2,10 +2,10 @@ local M = {}
 
 local nvim_config_lua_path = vim.fn.stdpath("config") .. "/" .. "lua"
 
-function M.safe_require_alert(module_name)
+function M.safe_require_alert(module_name, log_level)
     local mod = M.safe_require(module_name)
     if mod == nil then
-        vim.notify("Module " .. module_name .. " not found", vim.log.levels.WARN)
+        vim.notify("Module " .. module_name .. " not found", log_level or vim.log.levels.WARN)
     end
     return mod
 end
