@@ -75,6 +75,9 @@ vim.o.spell = true
 vim.o.spelllang = "en_au"
 vim.o.spelloptions = "camel"
 
+-- Diagnostic
+vim.diagnostic.config({ virtual_text = true })
+
 -- Folding
 function M.treesitter_foldexpr()
     vim.opt_local.foldmethod = "expr"
