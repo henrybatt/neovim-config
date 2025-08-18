@@ -5,7 +5,7 @@ return {
 
     opts = {
         picker = {
-            enable = true,
+            enabled = true,
             matcher = { frecency = true },
             win = {
                 input = {
