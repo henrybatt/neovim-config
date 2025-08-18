@@ -32,7 +32,7 @@ local setup = {
 -- Import lazy plugin modules for enabled languages in lua/languages.lua
 local utils = require("core.utils")
 for index, language in ipairs(utils.safe_require("languages") or {}) do
-    if utils.safe_require_alert("plugins.languages." .. language) ~= nil then
+    if utils.safe_require_alert("plugins.languages." .. language, vim.log.levels.ERROR) ~= nil then
         table.insert(setup.spec, { import = "plugins.languages." .. language} )
     end
 end
