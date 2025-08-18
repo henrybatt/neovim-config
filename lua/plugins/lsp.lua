@@ -21,7 +21,6 @@ local function on_attach(client, buf)
     map("<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Document [S]ymbols")
     map("<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace [S]ymbols")
 
-    map("<leader>gd", vim.diagnostic.open_float, "Open [D]iagnostic")
     map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
     map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
     map("<leader>fmt", vim.lsp.buf.format, "LSP [F]or[m]a[t]")
