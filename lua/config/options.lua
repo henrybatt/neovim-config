@@ -1,82 +1,60 @@
 local M = {}
 
--- Add rounded borders to windows
-vim.o.winborder = "rounded"
-
--- Enable relative line numbers
+-- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
 
--- Enable mouse support
-vim.o.mouse = "a"
-
--- Disable showing mode (it's already in status line)
-vim.o.showmode = false
-
--- Sync with OS clipboard
-vim.o.clipboard = "unnamedplus"
-
--- Enable break indent
+-- Break indent
 vim.o.breakindent = true
 
--- Enable undo history
+-- Undo
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
--- Smart searching (case insensitive)
+-- Search
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.inccommand = "split"
 
--- Enable signcolumn by default
-vim.o.signcolumn = "yes"
-
--- Decrease update time
-vim.o.updatetime = 250
-
--- Configure how new splits should be opened
+-- Window splits
 vim.o.splitright = true
 vim.o.splitbelow = true
 
--- Preview substitutions live
-vim.o.inccommand = "split"
-
--- Show which line your cursor is on
-vim.o.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 10
-
--- Write file contents
+-- Auto file
 vim.o.autowrite = true
-
--- Reload file if changed externally
 vim.o.autoread = true
 
--- Enable text wrapping mode
-vim.o.wrap = true
+-- Swapfile
+vim.o.swapfile = false
 
--- Enable term full colours
-vim.o.termguicolors = true
-
--- Indent on appropriate indent triggers (eg {))
+-- Indentation
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 vim.o.smartindent = true
-
--- Spaces not tabs.
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
+vim.o.wrap = true
 
 -- Spelling
 vim.o.spell = true
 vim.o.spelllang = "en_au"
 vim.o.spelloptions = "camel"
 
+-- UI
+vim.o.winborder = "rounded"
+vim.o.scrolloff = 8
+vim.o.signcolumn = "yes"
+vim.o.cursorline = true
+vim.o.termguicolors = true
+vim.o.showmode = false
+
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = true })
+
+-- Misc
+vim.o.mouse = "a"
+vim.o.clipboard = "unnamedplus"
+vim.o.updatetime = 250
 
 -- Folding
 function M.treesitter_foldexpr()
@@ -84,11 +62,13 @@ function M.treesitter_foldexpr()
     vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
     vim.opt_local.foldtext = "v:lua.custom_foldtext()"
 end
+
 function M.lsp_foldexpr()
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "v:lua.vim.lsp.foldexpr()"
     vim.opt_local.foldtext = "v:lua.custom_foldtext()"
 end
+
 vim.o.foldcolumn = "0"
 vim.o.foldenable = true
 vim.o.foldlevel = 99
