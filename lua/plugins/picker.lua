@@ -23,22 +23,23 @@ return {
                 },
             },
             preset = "default",
-            layout = {
-                layout = {
-                    box = "horizontal",
-                    width = 0.9,
-                    min_width = 120,
-                    height = 0.85,
-                    {
-                        box = "vertical",
-                        title = "{title} {live} {flags}",
-                        { win = "input", border = "rounded", title = "{title} {live} {flags}", height = 1 },
-                        { win = "list",  border = "rounded", title = "Results" },
-                    },
-                    { win = "preview", title = "{preview}", border = "rounded", width = 0.8 },
-                },
-            },
+            layout = "custom_default",
             layouts = {
+                custom_default = {
+                    layout = {
+                        box = "horizontal",
+                        width = 0.9,
+                        min_width = 120,
+                        height = 0.85,
+                        {
+                            box = "vertical",
+                            title = "{title} {live} {flags}",
+                            { win = "input", border = "rounded", title = "{title} {live} {flags}", height = 1 },
+                            { win = "list",  border = "rounded", title = "Results" },
+                        },
+                        { win = "preview", title = "{preview}", border = "rounded", width = 0.8 },
+                    },
+                },
                 vertical_list_only = {
                     layout = {
                         backdrop = false,
@@ -111,9 +112,9 @@ return {
             end,
             desc = "Keymaps"
         },
-        { "<leader>sq", function() Snacks.picker.qflist() end,                desc = "Quickfix List" },
-        { "<leader>sR", function() Snacks.picker.resume() end,                desc = "Resume" },
-        { "<leader>su", function() Snacks.picker.undo() end,                  desc = "Undo History" },
+        { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
+        { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
+        { "<leader>su", function() Snacks.picker.undo() end,   desc = "Undo History" },
 
         -- -- LSP
         -- { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
