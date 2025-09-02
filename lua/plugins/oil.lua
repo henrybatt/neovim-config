@@ -35,7 +35,7 @@ return {
             },
             keymaps = {
                 ["gd"] = {
-                    desc = "Toggle file detail view",
+                    desc = "OIL: Toggle file detail view",
                     callback = function()
                         _G.detail = not detail
                         if detail then
@@ -58,7 +58,7 @@ return {
 
         keys = function()
             return {
-                { "-", require("oil").open_float, desc = "Open parent directory - OIL" },
+                { "-", require("oil").open_float, desc = "OIL: Open parent directory" },
             }
         end,
     }
