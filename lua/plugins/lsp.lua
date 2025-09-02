@@ -81,7 +81,7 @@ return {
             version = "1.*",
             dependencies = { "rafamadriz/friendly-snippets" },
             opts_extend = { "sources.default" },
-            opts = {},
+            opts = { completion = { accept = { auto_brackets = { enabled = true } } } },
         },
     },
 
