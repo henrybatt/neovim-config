@@ -1,5 +1,4 @@
--- return require("core.utils").apply_ft("python", {
-return {
+return require("core.utils").apply_ft("rust", {
     {
         "lsp-config",
         virtual = true,
@@ -12,7 +11,12 @@ return {
         },
 
         opts = function()
-            vim.lsp.config("rust-analyzer", { })
+            vim.lsp.config("rust-analyzer", {
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                    runBuildScripts = true
+                }
+            })
         end,
     },
     {
@@ -20,8 +24,5 @@ return {
         opts = function()
             require("nvim-treesitter").install({ "rust", "toml" })
         end,
-
-
     },
-}
--- })
+})
