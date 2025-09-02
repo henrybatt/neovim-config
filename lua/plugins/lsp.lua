@@ -1,7 +1,3 @@
-local ensure_installed = {
-    "lua_ls",
-}
-
 -- Run on lsp buffer attach
 local function on_attach(client, buf)
     local function map(keys, func, desc, opts)
@@ -72,7 +68,7 @@ return {
         {
             "WhoIsSethDaniel/mason-tool-installer.nvim",
             opts = {
-                ensure_installed = ensure_installed
+                ensure_installed = { "lua_ls" },
             },
         },
         { "neovim/nvim-lspconfig", config = function() end },
