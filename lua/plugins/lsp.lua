@@ -12,7 +12,7 @@ local function on_attach(client, buf)
         require("core.utils").map("n", keys, func, options)
     end
 
-    -- Keymappings
+    -- Key mappings
     map("gd", function() Snacks.picker.lsp_definitions() end, "Goto [D]efinition")
     map("gD", function() Snacks.picker.lsp_declarations() end, "Goto [D]eclaration")
     map("gr", function() Snacks.picker.lsp_references() end, "Goto [R]eferences", { nowait = true })
@@ -26,12 +26,12 @@ local function on_attach(client, buf)
     map("<leader>fmt", vim.lsp.buf.format, "LSP [F]or[m]a[t]")
     map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover Documentation")
 
-    -- Enable lsp folding is available
+    -- Enable lsp folding if available
     if client:supports_method("textDocument/foldingRange", buf) then
         require("config.options").lsp_foldexpr()
     end
 
-    -- Highligh definitions on cursor hold
+    -- Highlight definitions on cursor hold
     if client:supports_method("textDocument/documentHighlight", buf) then
         local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = true })
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
