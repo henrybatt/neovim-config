@@ -77,7 +77,23 @@ return {
             version = "1.*",
             dependencies = { "rafamadriz/friendly-snippets" },
             opts_extend = { "sources.default" },
-            opts = { completion = { accept = { auto_brackets = { enabled = true } } } },
+            opts = {
+                keymap = {
+                    preset = "default",
+                    ["<S-CR>"] = { "accept", "fallback" },
+                    ["<C-CR>"] = { "accept", "fallback" },
+                },
+                completion = {
+                    ghost_text = {
+                        enabled = true,
+                    },
+                    accept = {
+                        auto_brackets = {
+                            enabled = true,
+                        },
+                    },
+                },
+            },
         },
     },
 
