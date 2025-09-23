@@ -1,6 +1,36 @@
 return {
     "mfussenegger/nvim-dap",
 
+    config = function()
+        vim.fn.sign_define("DapBreakpoint", {
+            text = "●",
+            texthl = "DapBreakpoint",
+            linehl = "",
+            numhl = ""
+        })
+
+        vim.fn.sign_define("DapBreakpointCondition", {
+            text = "◆",
+            texthl = "DapBreakpointCondition",
+            linehl = "",
+            numhl = ""
+        })
+
+        vim.fn.sign_define("DapLogPoint", {
+            text = "➤",
+            texthl = "DapLogPoint",
+            linehl = "",
+            numhl = ""
+        })
+
+        vim.fn.sign_define("DapStopped", {
+            text = "▶",
+            texthl = "DapStopped",
+            linehl = "DapStopped",
+            numhl = "DapStopped"
+        })
+    end,
+
     keys = {
         { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Dap: Breakpoint Condition" },
         { "<leader>db", function() require("dap").toggle_breakpoint() end,                                    desc = "Dap: Toggle Breakpoint" },
