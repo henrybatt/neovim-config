@@ -6,7 +6,7 @@ return require("core.utils").apply_ft("python", {
             {
                 "WhoIsSethDaniel/mason-tool-installer.nvim",
                 opts_extend = { "ensure_installed" },
-                opts = { ensure_installed = { "pylsp" } },
+                opts = { ensure_installed = { "ruff", "basedpyright", "debugpy" } },
             },
         },
 
@@ -29,7 +29,11 @@ return require("core.utils").apply_ft("python", {
         opts = function()
             require("nvim-treesitter").install({ "python" })
         end,
-
-
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        config = function()
+            require("dap-python").setup("python3")
+        end,
     },
 })
