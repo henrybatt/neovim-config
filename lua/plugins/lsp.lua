@@ -8,20 +8,6 @@ local function on_attach(client, buf)
         require("core.utils").map("n", keys, func, options)
     end
 
-    -- Key mappings
-    map("gd", function() Snacks.picker.lsp_definitions() end, "Goto [D]efinition")
-    map("gD", function() Snacks.picker.lsp_declarations() end, "Goto [D]eclaration")
-    map("gr", function() Snacks.picker.lsp_references() end, "Goto [R]eferences", { nowait = true })
-    map("gI", function() Snacks.picker.lsp_implementations() end, "Goto [I]mplementation")
-    map("gy", function() Snacks.picker.lsp_type_definitions() end, "Goto T[y]pe Definition")
-    map("<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Document [S]ymbols")
-    map("<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace [S]ymbols")
-
-    map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-    map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-    map("<leader>fmt", vim.lsp.buf.format, "LSP [F]or[m]a[t]")
-    map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover Documentation")
-
     -- Enable lsp folding if available
     if client:supports_method("textDocument/foldingRange", buf) then
         require("config.options").lsp_foldexpr()
@@ -95,6 +81,20 @@ return {
                 },
             },
         },
+    },
+
+    keys = {
+        { "<leader>rn",  vim.lsp.buf.rename,                                       desc = "[R]e[n]ame" },
+        { "<leader>ca",  vim.lsp.buf.code_action,                                  desc = "[C]ode [A]ction" },
+        { "<leader>fmt", vim.lsp.buf.format,                                       desc = "LSP [F]or[m]a[t]" },
+        { "K",           function() vim.lsp.buf.hover({ border = "rounded" }) end, desc = "Hover Documentation" },
+        { "gd",          function() Snacks.picker.lsp_definitions() end,           desc = "Goto [D]efinition" },
+        { "gD",          function() Snacks.picker.lsp_declarations() end,          desc = "Goto [D]eclaration" },
+        { "gr",          function() Snacks.picker.lsp_references() end,            "Goto [R]eferences",             { nowait = true } },
+        { "gI",          function() Snacks.picker.lsp_implementations() end,       desc = "Goto [I]mplementation" },
+        { "gy",          function() Snacks.picker.lsp_type_definitions() end,      desc = "Goto T[y]pe Definition" },
+        { "<leader>ss",  function() Snacks.picker.lsp_symbols() end,               desc = "LSP Document [S]ymbols" },
+        { "<leader>sS",  function() Snacks.picker.lsp_workspace_symbols() end,     desc = "LSP Workspace [S]ymbols" },
     },
 
     opts = function()
