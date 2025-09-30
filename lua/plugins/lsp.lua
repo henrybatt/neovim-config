@@ -1,13 +1,5 @@
 -- Run on lsp buffer attach
 local function on_attach(client, buf)
-    local function map(keys, func, desc, opts)
-        local options = { buffer = buf, desc = "LSP: " .. desc }
-        if opts then
-            options = vim.tbl_extend("force", options, opts)
-        end
-        require("core.utils").map("n", keys, func, options)
-    end
-
     -- Enable lsp folding if available
     if client:supports_method("textDocument/foldingRange", buf) then
         require("config.options").lsp_foldexpr()
