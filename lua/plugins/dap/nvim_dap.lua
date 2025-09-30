@@ -1,35 +1,41 @@
 return {
-    "mfussenegger/nvim-dap",
+    "dap",
+    virtual = true,
+    dependencies = {
+        {
+            "mfussenegger/nvim-dap",
+            config = function()
+                vim.fn.sign_define("DapBreakpoint", {
+                    text = "●",
+                    texthl = "DapBreakpoint",
+                    linehl = "",
+                    numhl = ""
+                })
 
-    config = function()
-        vim.fn.sign_define("DapBreakpoint", {
-            text = "●",
-            texthl = "DapBreakpoint",
-            linehl = "",
-            numhl = ""
-        })
+                vim.fn.sign_define("DapBreakpointCondition", {
+                    text = "◆",
+                    texthl = "DapBreakpointCondition",
+                    linehl = "",
+                    numhl = ""
+                })
 
-        vim.fn.sign_define("DapBreakpointCondition", {
-            text = "◆",
-            texthl = "DapBreakpointCondition",
-            linehl = "",
-            numhl = ""
-        })
+                vim.fn.sign_define("DapLogPoint", {
+                    text = "➤",
+                    texthl = "DapLogPoint",
+                    linehl = "",
+                    numhl = ""
+                })
 
-        vim.fn.sign_define("DapLogPoint", {
-            text = "➤",
-            texthl = "DapLogPoint",
-            linehl = "",
-            numhl = ""
-        })
+                vim.fn.sign_define("DapStopped", {
+                    text = "▶",
+                    texthl = "DapStopped",
+                    linehl = "DapStopped",
+                    numhl = "DapStopped"
+                })
+            end,
 
-        vim.fn.sign_define("DapStopped", {
-            text = "▶",
-            texthl = "DapStopped",
-            linehl = "DapStopped",
-            numhl = "DapStopped"
-        })
-    end,
+        },
+    },
 
     keys = {
         { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Dap: Breakpoint Condition" },
@@ -49,4 +55,8 @@ return {
         { "<leader>dt", function() require("dap").terminate() end,                                            desc = "Dap: Terminate" },
         { "<leader>dw", function() require("dap.ui.widgets").hover() end,                                     desc = "Dap: Widgets" },
     },
+
+    opts = function() end,
+
+    config = function() end,
 }

@@ -1,8 +1,19 @@
 return {
-    "jay-babu/mason-nvim-dap.nvim",
-    cmd = { "DapInstall", "DapUninstall" },
+    "dap",
+    virtual = true,
     dependencies = {
-        { "williamboman/mason.nvim" },
-        { "mfussenegger/nvim-dap" },
+        "jay-babu/mason-nvim-dap.nvim",
+        cmd = { "DapInstall", "DapUninstall" },
+        dependencies = {
+            { "williamboman/mason.nvim" },
+            { "mfussenegger/nvim-dap" },
+        },
+        opts = {
+            handlers = {
+                function(config)
+                    require('mason-nvim-dap').default_setup(config)
+                end,
+            },
+        }
     },
 }
