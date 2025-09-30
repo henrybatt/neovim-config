@@ -76,17 +76,17 @@ return {
     },
 
     keys = {
-        { "<leader>rn",  vim.lsp.buf.rename,                                       desc = "[R]e[n]ame" },
-        { "<leader>ca",  vim.lsp.buf.code_action,                                  desc = "[C]ode [A]ction" },
-        { "<leader>fmt", vim.lsp.buf.format,                                       desc = "LSP [F]or[m]a[t]" },
-        { "K",           function() vim.lsp.buf.hover({ border = "rounded" }) end, desc = "Hover Documentation" },
-        { "gd",          function() Snacks.picker.lsp_definitions() end,           desc = "Goto [D]efinition" },
-        { "gD",          function() Snacks.picker.lsp_declarations() end,          desc = "Goto [D]eclaration" },
-        { "gr",          function() Snacks.picker.lsp_references() end,            "Goto [R]eferences",             { nowait = true } },
-        { "gI",          function() Snacks.picker.lsp_implementations() end,       desc = "Goto [I]mplementation" },
-        { "gy",          function() Snacks.picker.lsp_type_definitions() end,      desc = "Goto T[y]pe Definition" },
-        { "<leader>ss",  function() Snacks.picker.lsp_symbols() end,               desc = "LSP Document [S]ymbols" },
-        { "<leader>sS",  function() Snacks.picker.lsp_workspace_symbols() end,     desc = "LSP Workspace [S]ymbols" },
+        { "<leader>rn",  vim.lsp.buf.rename,                                       desc = "LSP: [R]e[n]ame" },
+        { "<leader>ca",  vim.lsp.buf.code_action,                                  desc = "LSP: [C]ode [A]ction" },
+        { "<leader>fmt", vim.lsp.buf.format,                                       desc = "LSP: [F]or[m]a[t]" },
+        { "K",           function() vim.lsp.buf.hover({ border = "rounded" }) end, desc = "LSP: Hover Documentation" },
+        { "gd",          function() Snacks.picker.lsp_definitions() end,           desc = "LSP: Goto [D]efinition" },
+        { "gD",          function() Snacks.picker.lsp_declarations() end,          desc = "LSP: Goto [D]eclaration" },
+        { "gr",          function() Snacks.picker.lsp_references() end,            desc = "LSP: Goto [R]eferences",     { nowait = true } },
+        { "gI",          function() Snacks.picker.lsp_implementations() end,       desc = "LSP: Goto [I]mplementation" },
+        { "gy",          function() Snacks.picker.lsp_type_definitions() end,      desc = "LSP: Goto T[y]pe Definition" },
+        { "<leader>ss",  function() Snacks.picker.lsp_symbols() end,               desc = "LSP: Document [S]ymbols" },
+        { "<leader>sS",  function() Snacks.picker.lsp_workspace_symbols() end,     desc = "LSP: Workspace [S]ymbols" },
     },
 
     opts = function()
