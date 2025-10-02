@@ -15,7 +15,11 @@ return {
 
     opts = {
         bigfile = { enabled = true },
-        quickfile = { enabled = true },
+        image = {
+            enabled = false,
+            formats = {},
+        },
+        quickfile = { enabled = false },
         terminal = {
             enabled = true,
             win = {
