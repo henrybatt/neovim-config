@@ -72,7 +72,7 @@ return {
         },
         { "<leader>/", function() Snacks.picker.grep() end,            desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>n", function() Snacks.picker.notifications() end,   desc = "Notification History" },
+        { "<leader>sn", function() Snacks.picker.notifications() end,   desc = "Notification History" },
 
         -- Find
         {
