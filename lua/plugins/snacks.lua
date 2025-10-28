@@ -48,6 +48,6 @@ return {
     },
 
     keys = {
-        { "<leader>tt", function() Snacks.terminal() end, desc = "[T]oggle [T]erminal Open" },
+        { "<leader>`", function() Snacks.terminal() end, desc = "Toggle Terminal Open" },
     },
 }
