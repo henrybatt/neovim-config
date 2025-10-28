@@ -4,7 +4,10 @@ return {
     lazy = false,
 
     opts = {
-        lazygit = { enabled = true },
+        lazygit = {
+            enabled = true,
+            theme_path = nil,
+        },
     },
 
     keys = {
