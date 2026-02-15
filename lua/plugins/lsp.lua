@@ -87,6 +87,7 @@ return {
         { "gy",          function() Snacks.picker.lsp_type_definitions() end,      desc = "LSP: Goto T[y]pe Definition" },
         { "<leader>ss",  function() Snacks.picker.lsp_symbols() end,               desc = "LSP: Document [S]ymbols" },
         { "<leader>sS",  function() Snacks.picker.lsp_workspace_symbols() end,     desc = "LSP: Workspace [S]ymbols" },
+        { "<leader>gd",  vim.diagnostic.open_float,                                desc = "Open diagnostic float" }
     },
 
     opts = function()
